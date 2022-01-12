@@ -1,7 +1,7 @@
 #ifndef __PROCESSOR__
 #define __PROCESSOR__
 #include <iostream>
-#include "type_definitions.h"
+#include "type_defs.h"
 #include "instruction_defs.h"
 #define RAM_SZ 4096
 
