@@ -24,13 +24,31 @@ void Processor::ret(){
     stack_pop(&PC);
 }
 
+void Processor::jpAddr(){
+    PC = nnn_instr.nnn;
+}
+
 void Processor::callAddr(){
     stack_push(PC);
     PC = nnn_instr.nnn;
 }
 
-void Processor::jpAddr(){
-    PC = nnn_instr.nnn;
+void Processor::seVxNN(){
+    if(V[xnn_instr.x] == xnn_instr.nn){
+        incrementPc();
+    }
+}
+
+void Processor::sneVxNN(){
+    if(V[xnn_instr.x] != xnn_instr.nn){
+        incrementPc();
+    }
+}
+
+void Processor::seVxVy(){
+    if(V[xy_instr.x] != V[xy_instr.y]){
+        incrementPc();
+    }
 }
 
 void Processor::ldVxN(){

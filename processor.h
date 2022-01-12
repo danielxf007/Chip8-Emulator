@@ -23,9 +23,9 @@ class Processor{
         void ret();
         void jpAddr();
         void callAddr();
-        void skipNextInstrIfVxEqNN();
-        void skipNextInstrIfVxNEqNN();
-        void skipNextInstrIfVxEqVy();
+        void seVxNN();
+        void sneVxNN();
+        void seVxVy();
         void ldVxN();
         void addVxNN();
         void ldVxVy();
