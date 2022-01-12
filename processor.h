@@ -1,13 +1,14 @@
 #ifndef __PROCESSOR__
 #define __PROCESSOR__
 #include <iostream>
+#include <stdlib.h>
 #include "type_defs.h"
 #include "instruction_defs.h"
 #define RAM_SZ 4096
 
 class Processor{
     private:
-        byte V[16], ram[RAM_SZ], SP;
+        byte V[16], ram[RAM_SZ], SP, DT, ST;
         word PC, I, stack[16];
         NNNInstr nnn_instr;
         XNNInstr xnn_instr;
@@ -40,6 +41,19 @@ class Processor{
         void sneVxVy();
         void ldIAddr();
         void jpV0Addr();
+        void rndVxNN();
+        void drwVxVyN();
+        void skpVx();
+        void skpnVx();
+        void ldVxDT();
+        void ldVxK();
+        void ldDTVx();
+        void ldSTVx();
+        void addIVx();
+        void ldFVx();
+        void ldBVx();
+        void ldMemIVx();
+        void ldVxMemI();
 
 };
 

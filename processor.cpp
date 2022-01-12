@@ -114,3 +114,59 @@ void Processor::ldIAddr(){
 void Processor::jpV0Addr(){
     PC = nnn_instr.nnn + V[0x0];
 }
+
+void Processor::rndVxNN(){
+    V[xnn_instr.x] = (rand() % 0xFF) & xnn_instr.nn;
+}
+
+void Processor::drwVxVyN(){
+
+}
+
+void Processor::skpVx(){
+
+}
+
+void Processor::skpnVx(){
+
+}
+
+void Processor::ldVxDT(){
+    V[x_instr.x] = DT;
+}
+
+void Processor::ldVxK(){
+
+}
+
+void Processor::ldDTVx(){
+    DT = V[x_instr.x];
+}
+
+void Processor::ldSTVx(){
+    ST = V[x_instr.x];
+}
+
+void Processor::addIVx(){
+    I += V[x_instr.x];
+}
+
+void Processor::ldFVx(){
+
+}
+
+void Processor::ldBVx(){
+
+}
+
+void Processor::ldMemIVx(){
+    for(word addr = I; addr < I+16; addr++){
+        ram[addr] = V[addr - I];
+    }
+}
+
+void Processor::ldVxMemI(){
+    for(word addr = I; addr < I+16; addr++){
+        V[addr - I] = ram[addr];
+    }
+}
