@@ -10,6 +10,7 @@ class Graphicator{
         u32 window_flags, screen_w, screen_h;
         GFXMem *gfx;
         SDL_Window *window;
+        SDL_Surface *window_surface;
     public:
         Graphicator(u32 screen_w, u32 screen_h, GFXMem *gfx, const char *window_title);
         ~Graphicator();
