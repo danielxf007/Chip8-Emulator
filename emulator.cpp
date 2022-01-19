@@ -68,23 +68,13 @@ void Emulator::emulate(){
             emu_state = RUNNING;
             break;
         case RUNNING:
-            frame_start = SDL_GetTicks();
             input_handler->doInput();
             processor->processInstr();
             decrementTimers();
             graphicator->renderScreen();
-            frame_time = SDL_GetTicks() - frame_start;
-            if(FRAME_DELAY > frame_time){
-                //SDL_Delay(FRAME_DELAY - frame_time);
-            }
             break;
         case  PAUSED:
-            frame_start = SDL_GetTicks();
             input_handler->doInput();
-            graphicator->renderScreen();
-            if(FRAME_DELAY > frame_time){
-                SDL_Delay(FRAME_DELAY - frame_time);
-            }
             break;
         }
     }
